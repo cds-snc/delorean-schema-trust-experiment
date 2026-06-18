@@ -10,7 +10,7 @@ This document addresses potential criticisms and explains what variables we isol
 
 **Response:**
 
-The extra guidance was **not** better prompts or architectural insight. It was a single sentence:
+The extra guidance was **not** better prompts or architectural insight. It was a single sentence invoking the added schema layer used in this experiment:
 
 > "Please use the schema-trust standard, including schemas in delorean/schemas/, and create a compliance log that traces design choices back to schema requirements."
 

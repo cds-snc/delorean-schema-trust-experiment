@@ -1,8 +1,8 @@
 # What are schemas in this context?
 
-"Schemas" in this experiment refer to typed YAML files that define **what must be decided** and **what artifacts must be produced** when implementing a feature.
+"Schemas" in this experiment refer to typed YAML files used in the added experiment layer to define **what must be decided** and **what artifacts must be produced** when implementing a feature.
 
-This is not the same as JSON schemas, Pydantic models, or database schemas (though those are related). This is about **decision schemas** — rules that compel an agent to enumerate and document choices.
+This is not the same as JSON schemas, Pydantic models, or database schemas (though those are related). This is about **decision schemas** — rules used in this experiment to compel an agent to enumerate and document choices.
 
 For direct inspection, the exact schema files used in this experiment are vendored in this repo:
 

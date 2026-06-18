@@ -15,9 +15,9 @@ This repository contains two content types:
 - DeLorean framework: https://github.com/cds-snc/delorean
 - Sample project used for this experiment: https://github.com/cds-snc/delorean_sampleProject
 
-## Actual schema files in this repo
+## Added schema-layer files in this repo
 
-To make this experiment directly investigable, this repo includes the actual schema files under [source/delorean/schemas/](source/delorean/schemas/).
+To make this experiment directly investigable, this repo includes the schema-layer files used for this experiment under [source/delorean/schemas/](source/delorean/schemas/).
 
 - [source/delorean/schemas/prd.schema.yaml](source/delorean/schemas/prd.schema.yaml)
 - [source/delorean/schemas/feature.schema.yaml](source/delorean/schemas/feature.schema.yaml)
@@ -38,7 +38,7 @@ Provenance: copied from [cds-snc/delorean_sampleProject](https://github.com/cds-
 
 **Want context?**
 - [What is DeLorean?](understand/what-is-delorean.md) — the pre-existing autonomy framework this experiment builds on.
-- [What are schemas?](understand/what-are-schemas.md) — the constraint layer we added.
+- [What are schemas?](understand/what-are-schemas.md) — the added constraint layer used in this experiment.
 - [Why is this fair?](understand/fair-comparison.md) — how we isolated the variable.
 - [How to read the findings](understand/how-to-read-findings.md) — guide to observability.
 
