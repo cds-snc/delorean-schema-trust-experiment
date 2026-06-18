@@ -18,7 +18,7 @@ Every claim in [FINDINGS.md](../FINDINGS.md) should be traceable to evidence in 
 3. The gap is implicit in A's code: the router raises 404, but the OpenAPI spec doesn't list it.
 
 **Where the gap appears in code:**
-- In the actual run-2 evidence directory in the parent project: `delorean_sampleProject_A` branch `experiment/a-unguided`
+- In the sample project repository used for this experiment: `https://github.com/cds-snc/delorean_sampleProject`
 - The router file at `backend/app/routers/example_items.py` would show `@router.delete("/{public_id}") returns ExampleItemResponse` (implicit 200)
 - But the service layer raises `ExampleItemNotFoundError` on missing item
 - This is converted to 404 by the global error handler
@@ -177,9 +177,10 @@ These four files let you validate every claim without needing to access the actu
 - **No frontend screenshots:** We didn't capture a screenshot showing A's double-delete vs B's "Deleting…" state. But the source code diff is included.
 - **No live testing:** We didn't include instructions for spinning up A and B in parallel and testing them yourself. But the evidence is complete enough to reason about the behavior.
 
-To get full observability (including code and screenshots), reference the parent project at `/Users/jesseburcsik/Documents/dev_projects/delorian/`:
-- Track A: `delorean_sampleProject_A`, branch `experiment/a-unguided`, commit `866624e`
-- Track B: `delorean_sampleProject_B`, branch `experiment/b-schema-guided`, commit `c143fa3`
+To get full observability (including code and screenshots), reference the base repositories:
+- DeLorean framework: `https://github.com/cds-snc/delorean`
+- Sample project: `https://github.com/cds-snc/delorean_sampleProject`
+- Local experiment run commits captured in this analysis: Track A `866624e`, Track B `c143fa3`
 
 ---
 

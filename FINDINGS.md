@@ -104,7 +104,7 @@ The feature spec (from both A and B) says "soft-delete an item." The agent neede
 
 **Link 2: Architecture standards (both tracks had this)**
 
-Both A and B have access to [architecture_docs/standards/std-009-api-rest.md](https://github.com/...): 
+Both A and B have access to [architecture_docs/standards/std-009-api-rest.md](https://github.com/cds-snc/delorean_sampleProject/blob/main/architecture_docs/standards/std-009-api-rest.md): 
 > "Successful DELETE operations return `204 No Content` (no response body) per RFC 7231."
 
 **Link 3: The question that forced the lookup**

@@ -4,6 +4,11 @@
 
 **The answer:** Yes. And more specifically: schemas force enumeration, which catches gaps that access alone doesn't reach.
 
+## Base repositories
+
+- DeLorean framework: https://github.com/cds-snc/delorean
+- Sample project used for this experiment: https://github.com/cds-snc/delorean_sampleProject
+
 ---
 
 ## Quick navigation
