@@ -1,0 +1,40 @@
+# Evidence Summary: delete-schema-guided
+# Conforms to delorean/schemas/evidence.schema.yaml
+
+change_id: delete-schema-guided
+work_context: local
+
+checks_run:
+  - command: make run-pytest
+    outcome: pass
+    notes: 12 backend tests passed (5 new for the DELETE feature).
+  - command: make check-openapi
+    outcome: pass
+    notes: OpenAPI file is current after make export-openapi.
+  - command: npm test (frontend)
+    outcome: pass
+    notes: 9 vitest tests passed (2 new for apiDelete).
+  - command: make lint-python
+    outcome: pass
+    notes: flake8 clean across backend/.
+  - command: make fmt-ci-python
+    outcome: pass
+    notes: black --check reports 30 files unchanged.
+  - command: npm run lint && npm run typecheck (frontend)
+    outcome: pass
+    notes: eslint clean and tsc --noEmit reports no errors.
+
+tests_result:
+  command: make run-pytest && (cd frontend && npm test)
+  passed: 21
+  failed: 0
+  skipped: 0
+
+openapi_fresh: pass
+
+schema_compliance: delorean/evidence/delete-schema-guided/compliance-log.yaml
+
+reviewer_notes:
+  - Verify the DELETE button + window.confirm flow on the data example page in a browser; automated tests stub the dialog. Scenario 3 (dismiss confirm = no deletion) is not covered by the unit suite.
+  - Confirm soft delete behaviour against PostgreSQL by deleting an item and re-running make db-up / make db-upgrade to see that the row remains with is_deleted=true and a deleted_at timestamp.
+  - Spot-check that the new DELETE /v1/example-items/{public_id} entry in openapi/openapi.json matches the router's 204/404/422 responses and the deleted Pydantic-free contract.

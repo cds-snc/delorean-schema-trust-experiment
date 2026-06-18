@@ -1,0 +1,12 @@
+ backend/app/repositories/example_items.py          |  29 +++++
+ backend/app/routers/example_items.py               |  36 ++++++-
+ backend/app/services/__init__.py                   |   2 +
+ backend/app/services/example_item_service.py       |  21 ++++
+ backend/tests/test_example_items.py                | 106 +++++++++++++++++-
+ .../delete-schema-guided/compliance-log.yaml       | 119 ++++++++++++++++++---
+ .../src/features/example-data/api/exampleItems.ts  |   6 +-
+ .../example-data/pages/ExampleDataPage.tsx         |  35 ++++++
+ frontend/src/services/apiClient.test.ts            |  42 +++++++-
+ frontend/src/services/apiClient.ts                 |  18 ++++
+ openapi/openapi.json                               |  41 +++++++
+ 11 files changed, 433 insertions(+), 22 deletions(-)

@@ -1,0 +1,5 @@
+track: A
+branch: experiment/a-unguided
+chat_session_id: <copy from chat URL or leave blank>
+credits_final: 248.8
+notes: 5 or 6 approvals, started 11:38 enddd 11:44 appx.

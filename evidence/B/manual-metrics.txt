@@ -1,0 +1,5 @@
+track: B
+branch: experiment/b-schema-guided
+chat_session_id: dd56b5cf-c04c-4d82-933b-c4b1ecc06e01
+credits_final: 257.1
+notes: 9 or 12 approvals, started 11:58 ended 12:04 appx (~6 min)

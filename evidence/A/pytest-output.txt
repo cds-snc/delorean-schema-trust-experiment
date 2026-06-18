@@ -1,0 +1,34 @@
+.venv/bin/python -m pytest
+...........                                                              [100%]
+
+---------- coverage: platform darwin, python 3.12.9-final-0 ----------
+Name                                           Stmts   Miss  Cover   Missing
+----------------------------------------------------------------------------
+backend/app/__init__.py                            0      0   100%
+backend/app/config.py                             26      1    96%   11
+backend/app/db/__init__.py                         2      0   100%
+backend/app/db/base.py                             2      0   100%
+backend/app/db/database.py                        11      2    82%   32-33
+backend/app/db/dependencies.py                        5      1    80%   9
+backend/app/db/models/__init__.py                   2      0   100%
+backend/app/db/models/example_item.py             17      0   100%
+backend/app/main.py                               21      0   100%
+backend/app/models/__init__.py                     2      0   100%
+backend/app/models/common.py                      10      0   100%
+backend/app/models/example_items.py               22      0   100%
+backend/app/repositories/__init__.py               2      0   100%
+backend/app/repositories/example_items.py         26     15    42%   12-18, 25-32, 39-46, 53-57, 64-69
+backend/app/routers/__init__.py                    0      0   100%
+backend/app/routers/example_items.py              27      0   100%
+backend/app/routers/health.py                     10      0   100%
+backend/app/services/__init__.py                   3      0   100%
+backend/app/services/example_item_service.py      31      0   100%
+backend/app/services/health_service.py             5      0   100%
+backend/app/utils/__init__.py                      0      0   100%
+backend/app/utils/global_error_handlers.py        23      5    78%   30, 54-61, 72-76
+backend/app/utils/standardized_logging.py         31      3    90%   37-40
+----------------------------------------------------------------------------
+TOTAL                                            278     27    90%
+Coverage XML written to file coverage.xml
+
+11 passed in 0.18s

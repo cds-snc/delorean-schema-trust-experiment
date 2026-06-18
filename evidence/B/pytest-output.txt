@@ -1,0 +1,40 @@
+.venv/bin/python -m pytest
+............                                                             [100%]
+=============================== warnings summary ===============================
+backend/tests/test_example_items.py::test_example_items_delete_route_rejects_invalid_uuid
+  /Users/jesseburcsik/Documents/dev_projects/delorian/delorean_sampleProject_B/.venv/lib/python3.11/site-packages/starlette/_exception_handler.py:59: DeprecationWarning: 'HTTP_422_UNPROCESSABLE_ENTITY' is deprecated. Use 'HTTP_422_UNPROCESSABLE_CONTENT' instead.
+    response = await handler(conn, exc)
+
+-- Docs: https://docs.pytest.org/en/stable/100%---------
+
+---------- coverage: platform darwin, python 3.11.4-final-0 ----------
+Name                                           Stmts   Miss  Cover   Missing
+----------------------------------------------------------------------------
+backend/app/__init__.py                            0      0   100%
+backend/app/config.py                             26      1    96%   11
+backend/app/db/__init__.py                        2      0   100%
+backend/app/db/base.py                             2      0   100%
+backend/app/db/database.py                        11      0   100%
+backend/app/db/dependencies.py                        5      0   100%
+backend/app/db/models/__init__.py                   2      0   100%
+backend/app/db/models/example_item.py             17      0   100%
+backend/app/main.py                               21      0   100%
+backend/app/models/__init__.py                     2      0   100%
+backend/app/models/common.py                      10      0   100%
+backend/app/models/example_items.py               22      0   100%
+backend/app/repositories/__init__.py               2      0   100%
+backend/app/repositories/example_items.py         26     15    42%   12-18, 25-32, 39-46, 53-57, 64-69
+backend/app/routers/__init__.py                    0      0   100%
+backend/app/routers/example_items.py              27      0   100%
+backend/app/routers/health.py                     10      0   100%
+backend/app/services/__init__.py                   3      0   100%
+backend/app/services/example_item_service.py      30      0   100%
+backend/app/services/health_service.py             5      0   100%
+backend/app/utils/__init__.py                      0      0   100%
+backend/app/utils/global_error_handlers.py        23      2    91%   72-76
+backend/app/utils/standardized_logging.py         31      3    90%   37-40
+----------------------------------------------------------------------------
+TOTAL                                            277     21    92%
+Coverage XML written to file coverage.xml
+
+12 passed, 1 warning in 0.15s

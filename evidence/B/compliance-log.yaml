@@ -1,0 +1,106 @@
+# Compliance Log: delete-schema-guided
+
+change_id: delete-schema-guided
+approach: schema-guided
+
+# Events are populated by the agent as work progresses.
+# Each event captures what schema was applied, what happened, and what was fixed.
+
+events:
+  - stage: requirements
+    schema_used: prd.schema.yaml
+    outcome: pass
+    artifact: openspec/changes/delete-schema-guided/proposal.md
+    notes: >
+      All required fields present. Scenarios cover happy path and two error paths.
+      out_of_scope and impacted_artifacts filled before design began.
+
+  - stage: implementation
+    schema_used: feature.schema.yaml
+    outcome: fixed
+    artifact: backend/app/services/example_item_service.py
+    notes: >
+      Checklist item service_layer required delete business logic to live in the
+      service, not the router. Added ExampleItemService.delete_item and a new
+      ExampleItemNotFoundError so the router stays thin. Caught before review.
+
+  - stage: implementation
+    schema_used: feature.schema.yaml
+    outcome: fixed
+    artifact: backend/app/repositories/example_items.py
+    notes: >
+      Checklist item no_raw_sql plus the soft-delete intent in the proposal
+      required a typed repository method. Added get_active_by_public_id and
+      soft_delete using SQLAlchemy ORM (no raw SQL). Caught before review.
+
+  - stage: implementation
+    schema_used: feature.schema.yaml
+    outcome: fixed
+    artifact: backend/app/routers/example_items.py
+    notes: >
+      Initial DELETE route would have returned implicit 200. Checklist item
+      http_status_codes_explicit required declaring status_code=204 and the
+      404 response shape. Added explicit responses={204,404} mapping and
+      response_class=Response so the route honours the no-body contract.
+      Caught before review.
+
+  - stage: implementation
+    schema_used: feature.schema.yaml
+    outcome: pass
+    artifact: backend/app/models/example_items.py
+    notes: >
+      Checklist items pydantic_request_model and pydantic_response_model:
+      DELETE has no request body and returns 204 with no body, so existing
+      ConfigDict(extra="forbid") models remain authoritative for create/list
+      and no new Pydantic models were required. Verified before marking
+      checklist complete.
+
+  - stage: implementation
+    schema_used: feature.schema.yaml
+    outcome: pass
+    artifact: backend/tests/test_example_items.py
+    notes: >
+      Checklist item tests_added: added one happy-path service test, one
+      not-found service test, one route 204 test, one route 404 test, and
+      one route 422 invalid-UUID test. All 12 backend tests pass.
+
+  - stage: implementation
+    schema_used: feature.schema.yaml
+    outcome: fixed
+    artifact: frontend/src/services/apiClient.ts
+    notes: >
+      Checklist items api_client_typed and error_state_handled required a
+      typed DELETE helper that resolves on 204 (no JSON body) and raises
+      ApiError on non-2xx. Added apiDelete because the existing apiRequest
+      always parsed JSON, which would have failed on 204. Caught before
+      review.
+
+  - stage: implementation
+    schema_used: feature.schema.yaml
+    outcome: pass
+    artifact: frontend/src/features/example-data/pages/ExampleDataPage.tsx
+    notes: >
+      Checklist items loading_state_handled and error_state_handled: per-item
+      deletingId state disables the row's Delete button and shows "Deleting...",
+      window.confirm enforces Scenario 3 (dismiss = no deletion), and load
+      errors flow through the existing Alert. Frontend tests, eslint, and
+      tsc --noEmit all pass.
+
+  - stage: implementation
+    schema_used: feature.schema.yaml
+    outcome: pass
+    artifact: openapi/openapi.json
+    notes: >
+      Checklist items openapi_exported and openapi_check_passes: make
+      export-openapi refreshed the contract and make check-openapi reported
+      "OpenAPI file is current". New DELETE /v1/example-items/{public_id}
+      route exposed with 204/404/422 responses.
+
+  - stage: evidence
+    schema_used: evidence.schema.yaml
+    outcome: pass
+    artifact: delorean/evidence/delete-schema-guided/summary.yaml
+    notes: >
+      All prior checks integrated into evidence summary. Checklist items
+      checks_run, tests_result, openapi_fresh, and schema_compliance all
+      populated with live results.
