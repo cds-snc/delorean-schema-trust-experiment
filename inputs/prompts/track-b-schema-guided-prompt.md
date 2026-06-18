@@ -1,7 +1,5 @@
 # Experiment B - Schema Guided
 
-Provenance: exact prompt text recovered from experiment records and supplied by the experiment operator on 2026-06-18.
-
 ```text
 Working directory: delorean_sampleProject_B
 Read openspec/changes/delete-schema-guided/proposal.md and build the feature.
