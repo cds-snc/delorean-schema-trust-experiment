@@ -2,6 +2,12 @@
 
 DeLorean is a framework for testing paths to AI autonomy level 5 (full autonomy with compliance and oversight).
 
+## Canonical links
+
+- DeLorean framework repo: https://github.com/cds-snc/delorean
+- Sample project repo used for this experiment: https://github.com/cds-snc/delorean_sampleProject
+- OpenSpec framework repo: https://github.com/fission-ai/openspec
+
 ## High-level purpose
 
 DeLorean measures what happens when you add a **constraint layer** to an autonomous agent's workflow:
@@ -17,9 +23,9 @@ DeLorean's constraint layer consists of:
 
 ### 1. Typed field schemas (YAML)
 
-- `prd.schema.yaml` — Requires every feature proposal to list error scenarios and out-of-scope boundaries
-- `feature.schema.yaml` — Checklist of implementation requirements (service layer, typed models, explicit status codes, tests for error paths, etc.)
-- `evidence.schema.yaml` — Structure for compliance receipts (what checks ran, did they pass, notes)
+- `prd.schema.yaml` — Requires every feature proposal to list error scenarios and out-of-scope boundaries ([sample path](https://github.com/cds-snc/delorean_sampleProject/tree/main/delorean/schemas))
+- `feature.schema.yaml` — Checklist of implementation requirements (service layer, typed models, explicit status codes, tests for error paths, etc.) ([sample path](https://github.com/cds-snc/delorean_sampleProject/tree/main/delorean/schemas))
+- `evidence.schema.yaml` — Structure for compliance receipts (what checks ran, did they pass, notes) ([sample path](https://github.com/cds-snc/delorean_sampleProject/tree/main/delorean/schemas))
 
 ### 2. Compliance logs
 
@@ -61,7 +67,7 @@ You could think of it as:
 
 - **Not a full governance framework.** No approval workflows, risk scoring, or financial accountability (yet).
 - **Not a deployment tool.** No CD/CI integration or release orchestration (though gates interface with it).
-- **Not a database of standards.** Standards are stored separately (in `architecture_docs/`); DeLorean just enforces that you follow them.
+- **Not a database of standards.** Standards are stored separately (in `architecture_docs/`) ([sample standards path](https://github.com/cds-snc/delorean_sampleProject/tree/main/architecture_docs/standards)); DeLorean just enforces that you follow them.
 
 ## How to read this experiment with DeLorean context
 
