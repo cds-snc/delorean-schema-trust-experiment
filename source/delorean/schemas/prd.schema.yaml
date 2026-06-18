@@ -1,0 +1,70 @@
+# PRD Schema
+# Governs: openspec/changes/<change-id>/proposal.md
+# An agent must produce a proposal that satisfies every required field
+# before the design or implementation stage may begin.
+
+version: 1
+artifact: prd
+
+required_fields:
+  - id: change_id
+    description: Unique slug for this change. Matches the folder name.
+    type: string
+    pattern: "^[a-z0-9-]+$"
+    example: "delete-item"
+
+  - id: title
+    description: One-line plain-language description of what changes.
+    type: string
+    max_length: 80
+    example: "Delete an example item"
+
+  - id: capability
+    description: Which capability this change belongs to.
+    type: string
+    example: "example-items"
+
+  - id: work_context
+    description: Where this work happens. Must be one of the allowed values.
+    type: enum
+    values: [local, shared-non-production, production]
+    example: "local"
+
+  - id: problem
+    description: What problem this change solves and for whom. Must name a real user or role.
+    type: string
+    min_length: 20
+    example: "A developer needs to remove example items created during testing without resetting the database."
+
+  - id: scenarios
+    description: At least one acceptance scenario in Given/When/Then format.
+    type: list
+    min_items: 1
+    item_shape:
+      given: string
+      when: string
+      then: string
+
+  - id: out_of_scope
+    description: Explicit list of what this change does NOT include.
+    type: list
+    min_items: 1
+
+  - id: impacted_artifacts
+    description: Files or layers expected to change. Backend, frontend, migrations, tests, schemas.
+    type: list
+    min_items: 1
+
+optional_fields:
+  - id: open_questions
+    description: Unresolved decisions that need human input before design.
+    type: list
+
+  - id: constraints
+    description: Technical or policy constraints that shape the design.
+    type: list
+
+validation_rules:
+  - rule: scenarios must cover the happy path and at least one error path
+  - rule: work_context must be set before any implementation begins
+  - rule: impacted_artifacts must name at least backend and frontend layers if both exist

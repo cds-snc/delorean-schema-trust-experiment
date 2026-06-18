@@ -1,0 +1,55 @@
+# Compliance Log Schema
+# Governs: delorean/evidence/<change-id>/compliance-log.yaml
+# This is the audit trail for schema usage during a build.
+# Populated by the agent as it works. Reviewed by humans as proof.
+
+version: 1
+artifact: compliance-log
+
+# The log records events — not just pass/fail.
+# Each entry tells the story of where schemas caught something.
+
+required_fields:
+  - id: change_id
+    type: string
+
+  - id: approach
+    description: Whether schema contracts were applied or not. Drives the A/B comparison.
+    type: enum
+    values: [schema-guided, unguided]
+
+  - id: events
+    description: Ordered list of schema-related events during the build.
+    type: list
+    min_items: 0  # allowed to be empty for unguided builds — that IS the data point
+    item_shape:
+      stage: enum[requirements, implementation, evidence]
+      schema_used: string         # e.g. "prd.schema.yaml" or "none"
+      outcome: enum[pass, fail, fixed, skipped]
+      artifact: string            # e.g. "openspec/changes/delete-item/proposal.md"
+      notes: string               # what happened
+
+  - id: summary:
+    description: Human-readable summary of what schemas prevented vs. what reached review.
+    type: object
+    fields:
+      issues_caught_before_review: integer
+      issues_reached_review: integer
+      iterations_needed: integer
+      reviewer_effort_estimate: enum[high, medium, low]
+
+optional_fields:
+  - id: comparison_notes
+    description: >
+      Freeform notes comparing this run to the other A/B branch.
+      Written after both builds complete.
+    type: string
+
+# How to use this log
+# -------------------
+# 1. Create it at the start of the change with approach set and events: []
+# 2. Add an event each time a schema is applied and produces an outcome.
+# 3. Fill summary after the build is done.
+# 4. For the A/B demo: compare the two logs side by side.
+#    The unguided log will have events: [] and reviewer_effort_estimate: high.
+#    The schema-guided log will show caught issues and reviewer_effort_estimate: low.

@@ -1,0 +1,8 @@
+Track B prompt used in run-2 (schema-guided):
+
+Please implement the soft-delete feature as described in the proposal. Use the codebase conventions and architectural standards.
+
+Please use the schema-trust standard. Apply the checklist in delorean/schemas/feature.schema.yaml. Create a compliance log in delorean/evidence/ that documents each decision against the schema requirements.
+
+Source:
+- Captured in PROCESS.md under "How each track was run".

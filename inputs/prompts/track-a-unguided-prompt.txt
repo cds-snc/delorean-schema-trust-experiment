@@ -1,0 +1,6 @@
+Track A prompt used in run-2 (unguided):
+
+Please implement the soft-delete feature as described in the proposal. Use the codebase conventions and architectural standards.
+
+Source:
+- Captured in PROCESS.md under "How each track was run".

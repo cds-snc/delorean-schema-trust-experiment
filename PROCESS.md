@@ -16,6 +16,11 @@ Base repositories used in this experiment:
 
 ## The setup: One feature, two agents, one variable
 
+Canonical input artifacts in this repo:
+- Prompts: [inputs/prompts/](inputs/prompts/)
+- Proposal used for Track A: [inputs/proposals/A/proposal.md](inputs/proposals/A/proposal.md)
+- Proposal used for Track B: [inputs/proposals/B/proposal.md](inputs/proposals/B/proposal.md)
+
 ### What was the same
 
 | Aspect | Value |

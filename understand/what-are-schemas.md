@@ -4,9 +4,20 @@
 
 This is not the same as JSON schemas, Pydantic models, or database schemas (though those are related). This is about **decision schemas** — rules that compel an agent to enumerate and document choices.
 
+For direct inspection, the exact schema files used in this experiment are vendored in this repo:
+
+- [../source/delorean/schemas/prd.schema.yaml](../source/delorean/schemas/prd.schema.yaml)
+- [../source/delorean/schemas/feature.schema.yaml](../source/delorean/schemas/feature.schema.yaml)
+- [../source/delorean/schemas/evidence.schema.yaml](../source/delorean/schemas/evidence.schema.yaml)
+- [../source/delorean/schemas/compliance-log.schema.yaml](../source/delorean/schemas/compliance-log.schema.yaml)
+
+Provenance: copied from https://github.com/cds-snc/delorean_sampleProject at commit `c143fa32732561ebca4d00c629687661b5eb83fc`.
+
 ## The three schemas in this experiment
 
 ### 1. prd.schema.yaml — Requirements schema
+
+Source file: [../source/delorean/schemas/prd.schema.yaml](../source/delorean/schemas/prd.schema.yaml)
 
 Defines what a feature proposal must contain:
 
@@ -32,6 +43,8 @@ Both A and B received the same proposal text, which already satisfied prd.schema
 A's agent had the scenario list but was not compelled to ensure every scenario was handled in code. B's agent was (via `feature.schema.yaml`).
 
 ### 2. feature.schema.yaml — Implementation schema
+
+Source file: [../source/delorean/schemas/feature.schema.yaml](../source/delorean/schemas/feature.schema.yaml)
 
 Defines a checklist of decisions that must be made and artifacts that must exist:
 
@@ -60,6 +73,8 @@ This is where forced enumeration happens:
 A's agent knew these were good practices (they're common sense) but wasn't compelled to enumerate them. So A skipped loading state and the 404 test didn't verify the OpenAPI spec.
 
 ### 3. evidence.schema.yaml — Compliance receipt schema
+
+Source file: [../source/delorean/schemas/evidence.schema.yaml](../source/delorean/schemas/evidence.schema.yaml)
 
 Defines what must be recorded about the implementation decisions:
 

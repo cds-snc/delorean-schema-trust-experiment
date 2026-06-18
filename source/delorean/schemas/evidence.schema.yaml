@@ -1,0 +1,64 @@
+# Evidence Schema
+# Governs: delorean/evidence/<change-id>/summary.yaml
+# An agent must produce evidence in this shape before a change is considered reviewable.
+
+version: 1
+artifact: evidence
+
+required_fields:
+  - id: change_id
+    description: Matches the OpenSpec change folder name.
+    type: string
+
+  - id: work_context
+    description: Where the work was done. Must match the proposal.
+    type: enum
+    values: [local, shared-non-production, production]
+
+  - id: checks_run
+    description: List of verification commands run and their outcomes.
+    type: list
+    min_items: 1
+    item_shape:
+      command: string
+      outcome: enum[pass, fail, skip]
+      notes: string  # required if outcome is fail or skip
+
+  - id: tests_result
+    description: Outcome of the test suite.
+    type: object
+    fields:
+      command: string
+      passed: integer
+      failed: integer
+      skipped: integer
+
+  - id: openapi_fresh
+    description: Whether the OpenAPI contract matches the implementation.
+    type: enum
+    values: [pass, fail, not-applicable]
+
+  - id: schema_compliance
+    description: Reference to the compliance log for this change.
+    type: string
+    example: "delorean/evidence/delete-item/compliance-log.yaml"
+
+  - id: reviewer_notes
+    description: What the reviewer needs to verify that cannot be automated.
+    type: list
+    min_items: 1
+
+optional_fields:
+  - id: known_issues
+    description: Failures or skips with justification.
+    type: list
+
+  - id: waivers
+    description: Links to approved waivers for any blocked gate.
+    type: list
+
+validation_rules:
+  - rule: checks_run must include make run-pytest or equivalent
+  - rule: checks_run must include make check-openapi or equivalent
+  - rule: any check with outcome=fail must have a notes value
+  - rule: schema_compliance must point to a real file

@@ -7,6 +7,7 @@ DeLorean is a framework for testing paths to AI autonomy level 5 (full autonomy 
 - DeLorean framework repo: https://github.com/cds-snc/delorean
 - Sample project repo used for this experiment: https://github.com/cds-snc/delorean_sampleProject
 - OpenSpec framework repo: https://github.com/fission-ai/openspec
+- Vendored schema files in this repo: [../source/delorean/schemas/](../source/delorean/schemas/)
 
 ## High-level purpose
 

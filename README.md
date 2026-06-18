@@ -9,6 +9,18 @@
 - DeLorean framework: https://github.com/cds-snc/delorean
 - Sample project used for this experiment: https://github.com/cds-snc/delorean_sampleProject
 
+## Actual schema files in this repo
+
+To make this experiment directly investigable, this repo includes the actual schema files under [source/delorean/schemas/](source/delorean/schemas/).
+
+- [source/delorean/schemas/prd.schema.yaml](source/delorean/schemas/prd.schema.yaml)
+- [source/delorean/schemas/feature.schema.yaml](source/delorean/schemas/feature.schema.yaml)
+- [source/delorean/schemas/evidence.schema.yaml](source/delorean/schemas/evidence.schema.yaml)
+- [source/delorean/schemas/compliance-log.schema.yaml](source/delorean/schemas/compliance-log.schema.yaml)
+- [source/delorean/schemas/feature.schema.yaml.md](source/delorean/schemas/feature.schema.yaml.md)
+
+Provenance: copied from https://github.com/cds-snc/delorean_sampleProject at commit `c143fa32732561ebca4d00c629687661b5eb83fc`.
+
 ---
 
 ## Quick navigation
@@ -28,6 +40,11 @@
 - [evidence/A/](evidence/A/) — Track A's metrics and output (unguided).
 - [evidence/B/](evidence/B/) — Track B's metrics and output (schema-guided), plus compliance log.
 - [evidence/comparison/](evidence/comparison/) — Side-by-side analysis of each divergence.
+
+**Want the core inputs (prompts + proposals)?**
+- [inputs/prompts/](inputs/prompts/) — Prompt text used for Track A and Track B.
+- [inputs/proposals/A/proposal.md](inputs/proposals/A/proposal.md) — A-side proposal.
+- [inputs/proposals/B/proposal.md](inputs/proposals/B/proposal.md) — B-side proposal.
 
 ---
 
@@ -118,6 +135,15 @@ understand/
 ├── what-are-schemas.md          # Context: constraint layer added
 ├── fair-comparison.md           # Why A vs B is fair
 └── how-to-read-findings.md      # Guide to observability
+
+source/
+└── delorean/schemas/            # Actual schema files used by the experiment
+
+inputs/
+├── prompts/                     # Prompt text used for each track
+└── proposals/
+    ├── A/proposal.md            # Proposal used in A run
+    └── B/proposal.md            # Proposal used in B run
 
 FINDINGS.md                       # Three divergences with traces
 PROCESS.md                        # How we ran it
