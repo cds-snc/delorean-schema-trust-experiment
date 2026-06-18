@@ -45,7 +45,8 @@ Provenance: copied from https://github.com/cds-snc/delorean_sampleProject at com
 - [evidence/B/](evidence/B/) — Track B's metrics and output (schema-guided), plus compliance log.
 - [evidence/comparison/](evidence/comparison/) — Side-by-side analysis of each divergence.
 
-**Want the core inputs (runbooks + proposals)?**
+**Want the core inputs (prompts + runbooks + proposals)?**
+- [inputs/prompts/](inputs/prompts/) — Exact prompt text for Track A and Track B.
 - [inputs/runbooks/](inputs/runbooks/) — Raw runbook documents from run-2.
 - [inputs/proposals/A/proposal.md](inputs/proposals/A/proposal.md) — A-side proposal.
 - [inputs/proposals/B/proposal.md](inputs/proposals/B/proposal.md) — B-side proposal.
@@ -144,6 +145,7 @@ source/
 └── delorean/schemas/            # Actual schema files used by the experiment
 
 inputs/
+├── prompts/                     # Exact recovered prompt text for each track
 ├── runbooks/                    # Raw runbook docs from source project
 └── proposals/
     ├── A/proposal.md            # Proposal used in A run

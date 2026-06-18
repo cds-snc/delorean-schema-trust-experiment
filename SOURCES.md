@@ -35,6 +35,15 @@ Included files:
 - inputs/runbooks/COMPARISON.md
 - inputs/runbooks/HOW-WE-RAN-IT.md
 
+### Prompt inputs (recovered exact text)
+
+Recovered from experiment records and supplied by the experiment operator on 2026-06-18.
+
+Included files:
+- inputs/prompts/track-a-unguided-prompt.md
+- inputs/prompts/track-b-schema-guided-prompt.md
+- inputs/prompts/README.md
+
 ### Proposal inputs (raw)
 
 Copied from:
@@ -59,11 +68,10 @@ Included files:
 
 ## Prompt evidence status
 
-Exact A/B run-session prompt text is not currently included as a verified verbatim source artifact in this package.
+Exact A/B prompt text is now included in this package as recovered primary input evidence.
 
-- Reconstructed prompt text files were removed.
-- PROCESS.md still contains prompt wording from runbook/process notes.
-- If verbatim prompt logs are recovered later, add them under inputs/prompts/ with source path and capture timestamp.
+- Source provenance is recorded in each prompt file.
+- If a verbatim machine-captured prompt log is recovered later, it can be added as an additional source artifact alongside these recovered prompt records.
 
 ## Integrity rule
 

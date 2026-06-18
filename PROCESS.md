@@ -17,11 +17,12 @@ Base repositories used in this experiment:
 ## The setup: One feature, two agents, one variable
 
 Canonical input artifacts in this repo:
+- Prompts: [inputs/prompts/](inputs/prompts/)
 - Runbooks: [inputs/runbooks/](inputs/runbooks/)
 - Proposal used for Track A: [inputs/proposals/A/proposal.md](inputs/proposals/A/proposal.md)
 - Proposal used for Track B: [inputs/proposals/B/proposal.md](inputs/proposals/B/proposal.md)
 
-Prompt-note: this document records prompt wording from runbook/process notes; verbatim prompt logs are not yet packaged as standalone raw artifacts.
+Prompt-note: exact prompt text is now packaged under [inputs/prompts/](inputs/prompts/). Provenance is recorded in those files and in [SOURCES.md](SOURCES.md).
 
 ### What was the same
 
