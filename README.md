@@ -4,6 +4,8 @@
 
 **The answer:** Yes. And more specifically: schemas force enumeration, which catches gaps that access alone doesn't reach.
 
+This repository documents one experiment added on top of the existing DeLorean project and its sample project. It does not define DeLorean as a whole.
+
 This repository contains two content types:
 - Raw evidence copied from project artifacts and run logs
 - Interpretive analysis derived from those artifacts
@@ -35,7 +37,7 @@ Provenance: copied from [cds-snc/delorean_sampleProject](https://github.com/cds-
 - Dive into [evidence/](evidence/) for the raw artifacts.
 
 **Want context?**
-- [What is DeLorean?](understand/what-is-delorean.md) — the autonomy framework this experiment measures.
+- [What is DeLorean?](understand/what-is-delorean.md) — the pre-existing autonomy framework this experiment builds on.
 - [What are schemas?](understand/what-are-schemas.md) — the constraint layer we added.
 - [Why is this fair?](understand/fair-comparison.md) — how we isolated the variable.
 - [How to read the findings](understand/how-to-read-findings.md) — guide to observability.
@@ -169,6 +171,6 @@ LICENSE
 
 ## Authorship & license
 
-Experiment designed and executed in June 2026 as part of research into schema-guided autonomous development.
+This experiment package was assembled in June 2026 as one research exercise built on top of the broader DeLorean project.
 
 See [LICENSE](LICENSE) for terms.

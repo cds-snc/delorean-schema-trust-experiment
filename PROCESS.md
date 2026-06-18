@@ -8,6 +8,8 @@ This document explains how we isolated the variable and kept the comparison fair
 
 If we ask an AI agent to build the same feature twice — once with our schema-trust standard, once without — does it actually matter?
 
+This document describes one experiment run on top of the existing DeLorean project and sample project; it is not a description of DeLorean in its entirety.
+
 Base repositories used in this experiment:
 - DeLorean framework: https://github.com/cds-snc/delorean
 - Sample project: https://github.com/cds-snc/delorean_sampleProject

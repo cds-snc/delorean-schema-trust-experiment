@@ -2,6 +2,8 @@
 
 DeLorean is a framework for testing paths to AI autonomy level 5 (full autonomy with compliance and oversight).
 
+It is an existing shared project and workflow framework. This repository documents one additional experiment built on top of it, not DeLorean as a whole.
+
 ## Canonical links
 
 - DeLorean framework repo: https://github.com/cds-snc/delorean
