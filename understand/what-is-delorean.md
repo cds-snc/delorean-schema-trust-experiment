@@ -1,8 +1,8 @@
 # What is DeLorean?
 
-DeLorean is a framework for testing paths to AI autonomy level 5 (full autonomy with compliance and oversight).
+DeLorean is an existing shared project and way of working for teams experimenting with higher-trust agentic software delivery.
 
-It is an existing shared project and workflow framework. This repository documents one additional experiment built on top of it, not DeLorean as a whole.
+It includes operating guidance, repo structure, prompts, skills, evidence patterns, local process records, and supporting templates used across solution repositories. This repository documents one additional experiment built on top of that broader project; it does not define DeLorean as a whole.
 
 ## Canonical links
 
@@ -13,16 +13,30 @@ It is an existing shared project and workflow framework. This repository documen
 
 ## High-level purpose
 
-DeLorean measures what happens when you add a **constraint layer** to an autonomous agent's workflow:
+At a high level, DeLorean is aimed at making agent-assisted and agent-driven delivery more reviewable, safer, and easier to operate in real solution repositories.
+
+For this particular experiment, we added a **schema-driven constraint layer** on top of the existing DeLorean project:
 
 - **Without constraint layer:** Agent has access to standards, architecture docs, and best practices, but is not compelled to use them systematically. Gaps may go undetected.
 - **With constraint layer:** Agent must enumerate decisions against explicit schema rules and produce compliance receipts. Gaps are harder to hide.
 
-This experiment tests the "with constraint layer" pathway by comparing two otherwise-identical agent runs on the same feature.
+This experiment tests that added layer by comparing two otherwise-identical agent runs on the same feature.
 
-## What DeLorean adds (not the OpenSpec framework, but the layer on top)
+## What belongs to DeLorean vs. this experiment
 
-DeLorean's constraint layer consists of:
+In the sample project, DeLorean already includes more than schemas:
+
+- local process records under `delorean/`
+- evidence and approval/waiver patterns
+- gates and adoption-level behavior
+- prompts, skills, hooks, and repo guidance used by teams working in the project
+- integration with shared architecture guidance and OpenSpec workflows
+
+What this experiment adds on top is a narrower constraint mechanism centered on schemas and compliance receipts.
+
+## What the experiment adds on top
+
+The added constraint layer in this experiment consists primarily of:
 
 ### 1. Typed field schemas (YAML)
 
@@ -35,23 +49,15 @@ DeLorean's constraint layer consists of:
 - `compliance-log.yaml` — Audit trail: each schema rule that was applied, what it required, and what changed as a result
 - `summary.yaml` — Evidence summary: test results, linting, OpenAPI freshness, reviewer notes
 
-### 3. Gates (decision points)
+## Why this matters for this experiment
 
-Work-context gates, control-boundary gates, approval/waiver gates — not all tested in this experiment, but available in the full framework.
-
-### 4. State machine
-
-Features move through: spec → plan → implement → verify → release-ready → closed. This experiment captures the implement → verify transition.
-
-## Why this matters for autonomy
-
-At autonomy level 5, the agent operates unsupervised but must produce receipts that let humans audit every decision. DeLorean's constraint layer is designed to make auditing possible:
+For this experiment, the added schema layer makes it easier to audit specific implementation decisions:
 
 - **Compliance logs** let humans answer: "Why did the agent return 204 instead of 200?" Trace: feature schema rule → checklist item → decision.
 - **Typed schemas** prevent accidental omissions (e.g., forgetting to test error paths).
 - **Forced enumeration** creates a deliberate question-and-answer cycle instead of implicit defaults.
 
-This experiment demonstrates that the constraint layer *works*: forced enumeration catches gaps that access alone misses.
+This experiment is intended to test whether that added layer catches gaps that access alone misses.
 
 ## Relationship to OpenSpec
 
@@ -60,11 +66,13 @@ This experiment demonstrates that the constraint layer *works*: forced enumerati
 DeLorean sits on top of OpenSpec:
 
 - **OpenSpec provides:** Artifact shape (proposal.md, design.md, tasks.md), artifact dependency graph, `/opsx:verify` (3-dimensional validation)
-- **DeLorean provides:** Field-level validation within those artifacts, enforcement of schema rules, compliance receipts, gates, state machine
+- **DeLorean provides more broadly:** operating guidance, local process structure, evidence patterns, gates, and repo-level workflows around those artifacts
+- **This experiment adds:** field-level schema validation, compliance receipts, and explicit enumeration checks as one testable layer on top
 
 You could think of it as:
 - OpenSpec = "the shape and flow of artifacts"
-- DeLorean = "the rules for what goes inside those artifacts and the proof you followed the rules"
+- DeLorean = "the broader operating model and project structure around agent-assisted delivery"
+- This experiment = "one added schema-driven control layer tested within that broader model"
 
 ## What DeLorean does NOT do
 
