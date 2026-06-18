@@ -4,6 +4,10 @@
 
 **The answer:** Yes. And more specifically: schemas force enumeration, which catches gaps that access alone doesn't reach.
 
+This repository contains two content types:
+- Raw evidence copied from project artifacts and run logs
+- Interpretive analysis derived from those artifacts
+
 ## Base repositories
 
 - DeLorean framework: https://github.com/cds-snc/delorean
@@ -41,8 +45,8 @@ Provenance: copied from https://github.com/cds-snc/delorean_sampleProject at com
 - [evidence/B/](evidence/B/) — Track B's metrics and output (schema-guided), plus compliance log.
 - [evidence/comparison/](evidence/comparison/) — Side-by-side analysis of each divergence.
 
-**Want the core inputs (prompts + proposals)?**
-- [inputs/prompts/](inputs/prompts/) — Prompt text used for Track A and Track B.
+**Want the core inputs (runbooks + proposals)?**
+- [inputs/runbooks/](inputs/runbooks/) — Raw runbook documents from run-2.
 - [inputs/proposals/A/proposal.md](inputs/proposals/A/proposal.md) — A-side proposal.
 - [inputs/proposals/B/proposal.md](inputs/proposals/B/proposal.md) — B-side proposal.
 
@@ -140,7 +144,7 @@ source/
 └── delorean/schemas/            # Actual schema files used by the experiment
 
 inputs/
-├── prompts/                     # Prompt text used for each track
+├── runbooks/                    # Raw runbook docs from source project
 └── proposals/
     ├── A/proposal.md            # Proposal used in A run
     └── B/proposal.md            # Proposal used in B run

@@ -69,7 +69,7 @@ A was never compelled to enumerate status codes, so A never opened the checklist
 
 ### Observability: Where to see evidence
 
-- **B's compliance log:** See [evidence/B/compliance-log.yaml](evidence/B/compliance-log.yaml), event 5: "Initial DELETE route would have returned implicit 200. Checklist item `http_status_codes_explicit` required declaring status_code=204 and the 404 response shape."
+- **B's compliance log:** See [evidence/B/compliance-log.yaml](evidence/B/compliance-log.yaml), implementation event for `backend/app/routers/example_items.py`: "Initial DELETE route would have returned implicit 200. Checklist item `http_status_codes_explicit` required declaring status_code=204 and the 404 response shape."
 - **B's test coverage:** [evidence/B/pytest-output.txt](evidence/B/pytest-output.txt) shows 12 tests passed; the new 404 test is included.
 - **A's gap:** [evidence/A/pytest-output.txt](evidence/A/pytest-output.txt) shows 11 tests passed; test for 404 exists but spec gap is invisible to coverage.
 - **Metric:** A changed 9 files, B changed 11 files (the extra 2 are compliance log updates and test file additions).
@@ -142,7 +142,7 @@ A allows accidental duplicate deletes:
 
 1. **UX defect:** User clicks Delete, sees no visual feedback, clicks again. Two DELETE requests fire in parallel.
 2. **Race condition:** The second request may succeed or fail depending on timing.
-3. **Correction burden:** The second request is at least wasted work; at worst, it deletes an unintended item if timing is unlucky (e.g., user deletes item A, then immediately deletes item B, but the double-click on A fires after B is selected).
+3. **Correction burden:** The second request is at least wasted work and can surface avoidable API errors.
 
 B prevents this by disabling the button and showing "Deleting…", so the second click does nothing.
 

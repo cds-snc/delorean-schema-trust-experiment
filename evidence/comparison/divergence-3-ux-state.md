@@ -13,7 +13,7 @@
 A's double-click defect is a UX and potentially a data problem:
 
 1. **User friction:** Double-click fires two DELETE requests. No visual feedback, so user doesn't know first request succeeded.
-2. **Race condition:** If the user double-clicks item A then quickly selects and deletes item B, timing could cause the second request from A to delete B instead.
+2. **Duplicate request behavior:** The second request is avoidable and can return an error path (for example, not found after the first request completes).
 3. **Wasted work:** Even in the happy case, two identical requests is inefficient.
 
 B prevents this by disabling the button and showing "Deleting…", so the second click does nothing.
