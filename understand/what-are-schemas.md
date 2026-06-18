@@ -11,7 +11,7 @@ For direct inspection, the exact schema files used in this experiment are vendor
 - [../source/delorean/schemas/evidence.schema.yaml](../source/delorean/schemas/evidence.schema.yaml)
 - [../source/delorean/schemas/compliance-log.schema.yaml](../source/delorean/schemas/compliance-log.schema.yaml)
 
-Provenance: copied from https://github.com/cds-snc/delorean_sampleProject at commit `c143fa32732561ebca4d00c629687661b5eb83fc`.
+Provenance: copied from [cds-snc/delorean_sampleProject](https://github.com/cds-snc/delorean_sampleProject) at commit [c143fa32732561ebca4d00c629687661b5eb83fc](https://github.com/cds-snc/delorean_sampleProject/commit/c143fa32732561ebca4d00c629687661b5eb83fc).
 
 ## The three schemas in this experiment
 
